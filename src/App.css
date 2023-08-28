@@ -1,38 +1,368 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+
+.cont-first{
+  height: 100%;
+  width: 100%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+  .demo{ font-family: 'Noto Sans', sans-serif; }
+.panel{
+    background: linear-gradient(to right, #2980b9, #2c3e50);
+    padding: 0;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.05),0 0 0 10px rgba(0,0,0,0.05);
+}
+.panel .panel-heading{
+    padding: 20px 15px;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+}
+.panel .panel-heading .title{
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 40px;
+    margin: 0;
+}
+.panel .panel-heading .btn{
+    color: rgba(255,255,255,0.5);
+    background: transparent;
+    font-size: 16px;
+    text-transform: capitalize;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+}
+.panel .panel-heading .btn:hover{
+    color: #fff;
+    text-shadow: 3px 3px rgba(255,255,255,0.2);
+}
+.panel .panel-heading .form-control{
+    color: #fff;
+    background-color: transparent;
+    width: 35%;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+.panel .panel-heading .form-control:focus{
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: none;
+    outline: none;
+}
+.panel .panel-heading .form-control::placeholder{
+    color: rgba(255,255,255,0.5);
+    font-size: 15px;
+    font-weight: 500;
+}
+.panel .panel-body{ padding: 0; }
+.panel .panel-body .table thead tr th{
+    color: #fff;
+    background-color: rgba(55, 36, 36, 0.2);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+    border: none;
+}
+.panel .panel-body .table tbody tr td{
+    color: #fff;
+    background-color: rgba(55, 36, 36, 0.2);
+    font-size: 15px;
+    padding: 10px 12px;
+    vertical-align: middle;
+    border: none;
+}
+.panel .panel-body .table tbody tr:nth-child(even){ background-color: rgba(255,255,255,0.05); }
+.panel .panel-body .table tbody .action-list{ 
+  padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.panel .panel-body .table tbody .action-list li{
+    display: inline-block;
+    margin: 0 5px;
+}
+.panel .panel-body .table tbody .action-list li a{
+    color: #fff;
+    
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+.panel .panel-body .table tbody .action-list li a:hover{ text-shadow: 3px 3px 0 rgba(255,255,255,0.3); }
+.panel .panel-body .table tbody .action-list li a:before,
+.panel .panel-body .table tbody .action-list li a:after{
+    content: attr(data-tip);
+    color: #fff;
+    background-color: #111;
+    font-size: 12px;
+    padding: 5px 7px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    display: none;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: -32px;
+    transition: all 0.3s ease 0s;
+}
+.panel .panel-body .table tbody .action-list li a:after{
+    content: '';
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    border-radius: 0;
+    transform: translateX(-50%) rotate(45deg);
+    top: -18px;
+    z-index: -1;
+}
+.panel .panel-body .table tbody .action-list li a:hover:before,
+.panel .panel-body .table tbody .action-list li a:hover:after{
+    display: block;
+}
+.panel .panel-footer{
+    color: #fff;
+    background-color: transparent;
+    padding: 15px;
+    border: none;
+}
+.panel .panel-footer .col{ line-height: 35px; }
+.pagination{ margin: 0; }
+.pagination li a{
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid transparent;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 31px;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0 3px;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+}
+.pagination li a:hover{
+    color: #fff;
+    background-color: transparent;
+    border-color: rgba(255,255,255,0.2);
+}
+.pagination li a:focus,
+.pagination li.active a,
+.pagination li.active a:hover{
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+}
+.pagination li:first-child a,
+.pagination li:last-child a{
+    border-radius: 50%;
+}
+@media only screen and (max-width:767px){
+    .panel .panel-heading .title{
+        text-align: center;
+        margin: 0 0 10px;
+    }
+    .panel .panel-heading .btn_group{ text-align: center; }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+
+
+
+
+.link {
+    display: block;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 1px solid var(--color-blue);
+    margin: 0.5rem;
+    border-bottom-width: 3px;
+    border-radius: 2rem;
+    text-decoration: none;
+    position: relative;
+    &:before,
+    &:after {
+      position: absolute;
+      left: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      top: 50%;
+      transform-origin: 0 0;
+    }
+    &:before {
+     
+      transform: scale(0.5) translateY(-50%);
+      border-radius: 50%;
+      background-image: linear-gradient(
+          to right bottom,
+          transparent calc(50% - 2px),
+          black calc(50% - 2px),
+          black calc(50% + 2px),
+          transparent calc(50% + 2px)
+        ),
+        linear-gradient(
+          to left bottom,
+          transparent calc(50% - 2px),
+          black calc(50% - 2px),
+          black calc(50% + 2px),
+          transparent calc(50% + 2px)
+        );
+    }
+    &:after {
+      border-radius: 50%;
+      background-image: linear-gradient(
+          to right bottom,
+          transparent calc(50% - 2px),
+          black calc(50% - 2px),
+          black calc(50% + 2px),
+          transparent calc(50% + 2px)
+        ),
+        linear-gradient(
+          to left bottom,
+          transparent calc(50% - 2px),
+          black calc(50% - 2px),
+          black calc(50% + 2px),
+          transparent calc(50% + 2px)
+        );
+      transform: scale(0.5, 0.6) translateY(-50%);
+      background-repeat: no-repeat, no-repeat;
+      background-size: 1.5rem 1.5rem, 1.5rem 1.5rem;
+      background-position: left 0.45rem bottom 0.25rem,
+        left -0.85rem bottom 0.25rem;
+    }
   }
-  to {
-    transform: rotate(360deg);
+  
+ 
+  a {
+   
+    &:not([href]) {
+      &:before {
+        content: "";
+      }
+    }
+   
+    &[target="_blank"] {
+      &:not([href]) {
+        &:before {
+          content: none;
+        }
+        &:after {
+          content: "";
+        }
+        background-color: rgba(0, 250, 250, 0.25);
+        border-color: rgba(0, 250, 250, 1);
+  
+      
+        &:not([rel="noopener"]) {
+          &:after {
+            content: none;
+          }
+          &:before {
+            content: "";
+          }
+          background-color: rgba(200, 0, 0, 0.25);
+          border-color: rgba(200, 0, 0, 1);
+        }
+      }
+    }
+  
+   
+    &[href] {
+      &:before {
+        content: none;
+      }
+      &:after {
+        content: "";
+      }
+      border-color: green;
+      background-color: rgba(100, 255, 0, 0.25);
+  
+     
+      &[href^="#"] {
+        &:before {
+          content: none;
+        }
+        &:after {
+          content: "";
+        }
+        border-color: rgba(200, 200, 0, 1);
+        background-color: rgba(200, 200, 0, 0.25);
+      }
+     
+      &[href^="http"] {
+        &:before {
+          content: none;
+        }
+        &:after {
+          content: "";
+        }
+        border-color: blue;
+        background-color: rgba(0, 100, 255, 0.25);
+      }
+  
+    
+      &[target="_blank"] {
+        &:before {
+          content: none;
+        }
+        &:after {
+          content: "";
+        }
+        border-color: rgba(200, 0, 200, 1);
+        background-color: rgba(200, 0, 200, 0.25);
+  
+        
+        &:not([rel="noopener"]) {
+          &:after {
+            content: none;
+          }
+          &:before {
+            content: "";
+          }
+          border-color: rgba(255, 100, 0, 1);
+          background-color: rgba(255, 100, 0, 0.25);
+        }
+      }
+    }
   }
-}
+  
+
+
+
+  .custom-body{
+    height: 650px;
+    width: 100%;
+    background-image: url("G:\Internship\Project of Treatment\doctor_guide_with_symtums\public\pexels-photo-4386464.png");
+    background-size: cover;
+    background-position: center;
+  }
+  .btn-custom{
+    font-weight: bold;
+    font-size: 2.25rem; /* Adjust the font size as needed */
+    padding: 20px 40px; /* Adjust the padding as needed */
+    margin-left: 15%;
+    width: 70%;
+    height: 60px;
+    color: #fff;
+  }
