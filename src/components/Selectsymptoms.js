@@ -6,20 +6,20 @@ const Selectsymptoms=()=>{
     const [selectedsymptoms, setSelectedsymptoms] = useState([]);
     const navigate=useNavigate();   
     const location=useLocation();
-    const Uid=location.state?.bodyPartId;
+    const {bodyPartID,bodyPartname}=location.state;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/getsymptoms/${Uid}`)  
+        fetch(`http://localhost:5000/getsympt/${bodyPartID}`)  
           .then(response => response.json())
           .then(data => setSymptoms(data))
           .catch(error => console.error('Error fetching symptoms:', error));
-      }, [Uid]);
+      }, [bodyPartID]);
 
 
 
       const handleButtonClick = () => {
         console.log("0000000000000")
-        navigate('/Doctorlist',{state:{selectedsymptoms}})
+        navigate('/Doctorlist',{state:{selectedsymptoms,bodyPartname}})
       };
 
 
@@ -41,6 +41,45 @@ const Selectsymptoms=()=>{
 
     return(
         <div className="custom-body">
+
+<div>
+
+<nav className="navbar navbar-expand-lg navbar-light bg-dark">
+  <a className="navbar-brand text-white font-weight-bold" href="Adminpan">
+    Doctor Guaide with Symptoms
+  </a>
+  <button
+    className="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse" id="navbarNav">
+    <ul className="navbar-nav ml-auto">
+      <li className="nav-item">
+        <a className="nav-link text-white" href="Selectbodyparts">
+          Home
+        </a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link text-white" href="Selectbodyparts">
+         Select Body Part
+        </a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link text-white" href="/">
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+
         <div className="container">
           <main className="center">
               <div className="row d-flex">

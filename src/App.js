@@ -8,6 +8,7 @@ import Selectingparts from './components/Selectingparts'
 import Selectsymptoms from './components/Selectsymptoms'
 import Addbodyparts from './components/Addbodyparts'
 import Doctorlist from './components/Doctorlist'
+import Addspecilization from './components/Addspecilization'
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
     <Route path='Selectsymptoms' Component={Selectsymptoms}/>
     <Route path='Addbodyparts' Component={Addbodyparts}/>
     <Route path='Doctorlist' Component={Doctorlist}/>
+    <Route path='Addspecilization' Component={Addspecilization}/>
 
     </Routes>
     

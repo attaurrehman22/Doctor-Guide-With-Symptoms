@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Signup = () => {
   const [selectedRole, setSelectedRole] = useState("");
+  const [secselectedRole, setsecSelectedRole] = useState("");
   const [showCheckboxes, setShowCheckboxes] = useState("");
   const [headsymptoms, setHeadsymptoms] = useState([]);
   const [bodyprt, setBodyprt] = useState([]);
@@ -69,7 +70,8 @@ const Signup = () => {
         ...prevData,
         [id]: value,
       }));
-    } else {
+    } 
+    else {
       setSelectedRole(event.target.value);
       const { id, value } = event.target;
       setFormData((prevData) => ({
@@ -96,6 +98,11 @@ const Signup = () => {
     console.warn(checkboxValues);
   };
 
+
+
+
+
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
@@ -108,7 +115,7 @@ const Signup = () => {
 
     console.warn("formDataWithCheckboxes",formDataWithCheckboxes)
 
-    if (formData.role === "doctor") {
+    // if (formData.role === "doctor") {
       try {
         const response = await axios.post(
           "http://localhost:5000/doctor",
@@ -124,24 +131,32 @@ const Signup = () => {
       } catch (error) {
         console.error("Error registering:", error.message);
       }
-    } else {
-      try {
-        const response = await axios.post(
-          "http://localhost:3000/user",
-          formDataWithCheckboxes
-        );
+    // } else {
 
-        if (response.data === "exist") {
-          console.log("User already exists with this email.");
-        } else {
-          console.log("Registration successful:", response.data);
-          // Perform other actions after successful registration
-        }
-      } catch (error) {
-        console.error("Error registering:", error.message);
-      }
-    }
+    //   console.log("-------------------user call")
+    //   try {
+    //     const response = await axios.post(
+    //       "http://localhost:5000/user",
+    //       formDataWithCheckboxes
+    //     );
+
+    //     if (response.data === "exist") {
+    //       console.log("User already exists with this email.");
+    //     } else {
+    //       console.log("Registration successful:", response.data);
+    //       // Perform other actions after successful registration
+    //     }
+    //   } catch (error) {
+    //     console.error("Error registering:", error.message);
+    //   }
+    // }
   };
+
+
+
+
+
+
 
   const handleselectedBodypartwithSymptoms = (event, food) => {
     const sympname = food.name;
@@ -155,6 +170,10 @@ const Signup = () => {
         selectedsymptoms.filter((selected) => selected !== sympname)
       );
     }
+    const dr='doctor';
+    setsecSelectedRole(dr);
+    console.log(secselectedRole)
+
   };
 
   return (
@@ -219,8 +238,8 @@ const Signup = () => {
                       </select>
                     </div>
 
-                    {selectedRole === "doctor" && (
-                      <>
+                    {/* {selectedRole === "doctor" && (
+                      <> */}
                         <div className="form-outline mb-2">
                           <input
                             type="text"
@@ -250,14 +269,16 @@ const Signup = () => {
                             value={formData.speciality}>
                             <option value="">Select an Specialization</option>
                             {bodyprt.map((option, index) => (
-                              <option key={index} value={option.name}>
-                                {option.name}
+                              <option key={index} value={option.specialization}>
+                                {option.specialization}
                               </option>
                             ))}
                           </select>
                         </div>
 
-                        <div className="row mb-3">
+                        {/* {selectedRole === "doctor" && secselectedRole==="doctor" &&(
+                      <> */}
+                       <div className="row mb-3">
                         <div className="col-12 d-flex flex-wrap">
                           {headsymptoms.map((bodypartname) => (
                              <div className="col-3 flex-wrap">
@@ -275,6 +296,11 @@ const Signup = () => {
                           ))}
                           </div>
                         </div>
+
+                      {/* </>
+                        )} */}
+                       
+                       
 
                         {/* 
                         {showCheckboxes === "head" && (
@@ -421,8 +447,8 @@ const Signup = () => {
                             </div>
                           </div>
                         )} */}
-                      </>
-                    )}
+                      {/* </> */}
+                    {/* )} */}
 
                     <div className="d-flex justify-content-center">
                       <button
